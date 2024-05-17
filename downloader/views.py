@@ -7,13 +7,14 @@ import os
 import pickle
 from google_auth_oauthlib.flow import Flow, InstalledAppFlow
 from google.auth.transport.requests import Request
+from decouple import config
 
 # Cài đặt API của Google
-CLIENT_SECRET_FILE = 'client_secret_498150884414-6sste72jdqmdfgc8f17ftq8nblrkvg1k.apps.googleusercontent.com.json'
+CLIENT_SECRET_FILE = config('CLIENT_SECRET_FILE')
 API_NAME = 'youtube'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
-YOUTUBE_EMAIL = 'vomaianhthpt@gmail.com'
+YOUTUBE_EMAIL = config('YOUTUBE_EMAIL')
 
 # Trang thành công khi tải xuống video
 def download_success(request):
